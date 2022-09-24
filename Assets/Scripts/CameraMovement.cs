@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    public GameObject main;
     public GameObject left;
     public GameObject mid;
     public GameObject right;
@@ -13,9 +14,20 @@ public class CameraMovement : MonoBehaviour
     public GameObject leftScreen;
     public GameObject midScreen;
     public GameObject rightScreen;
+    public GameObject leftWaypoint;
+    public GameObject midWaypoint;
+    public GameObject rightWaypoint;
 
 
     int pos = 0;
+
+    void Start()
+    {
+        leftScreen.SetActive(false);
+        midScreen.SetActive(true);
+        rightScreen.SetActive(false);
+
+    }
 
     void Update()
     {
@@ -31,6 +43,8 @@ public class CameraMovement : MonoBehaviour
                 leftScreen.SetActive(true);
                 midScreen.SetActive(false);
                 rightScreen.SetActive(false);
+
+                main.transform.position = leftWaypoint.transform.position;
 
                 Debug.Log(pos);
                 pos--;
@@ -54,6 +68,8 @@ public class CameraMovement : MonoBehaviour
                 midScreen.SetActive(true);
                 rightScreen.SetActive(false);
 
+                main.transform.position = midWaypoint.transform.position;
+
                 Debug.Log(pos);
                 pos--;
                 Debug.Log(pos);
@@ -71,6 +87,9 @@ public class CameraMovement : MonoBehaviour
                 leftScreen.SetActive(false);
                 midScreen.SetActive(false);
                 rightScreen.SetActive(true);
+
+                main.transform.position = rightWaypoint.transform.position;
+
 
                 Debug.Log(pos);
                 pos++;
@@ -93,6 +112,8 @@ public class CameraMovement : MonoBehaviour
                 leftScreen.SetActive(false);
                 midScreen.SetActive(true);
                 rightScreen.SetActive(false);
+
+                main.transform.position = midWaypoint.transform.position;
 
                 Debug.Log(pos);
                 pos++;
