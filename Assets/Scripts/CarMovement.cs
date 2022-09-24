@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private int gear_level;
+
+    private float horizontalinput;
+    private float car_rotation;
+
+    public float rotation_multiplier;
+
+    private Transform car_transform;
+
     void Start()
     {
+        car_transform = GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        HandleInput();
+    }
+
+    private void FixedUpdate()
+    {
+        MoveCar();
+    }
+
+    private void HandleInput()
+    {
+        horizontalinput = Input.GetAxisRaw("Horizontal");
+        car_rotation = horizontalinput * rotation_multiplier;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoveCar()
     {
-        
+        car_transform.Rotate(0f, car_rotation, 0f);
     }
 }
