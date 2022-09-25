@@ -88,6 +88,7 @@ public class CarMovement : MonoBehaviour
         {
 
             //audio
+            HandBrake();
             StartCoroutine (carStopSFX());
 
             IEnumerator carStopSFX()
