@@ -33,9 +33,6 @@ public class CarMovement : MonoBehaviour
     public int gear2Pitch = 2;
     public int gear3Pitch = 3;
 
-    public int gearShiftTime = 2;
-
-
 
     //public GameObject moveToPoint;
 
@@ -65,7 +62,6 @@ public class CarMovement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        GearShiftAudio();
         
     }
 
@@ -147,23 +143,20 @@ public class CarMovement : MonoBehaviour
             case 1:
                 gear_level++;
                 car_speed *= gear_level;
-                inGear1 = true;
-                inGear2 = false;
-                inGear3 = false;
+                DOTween.To(() => theAM.carEngine.pitch, x => theAM.carEngine.pitch = x, gear2Pitch, 1f);
+
                 break;
             case 2:
                 gear_level++;
                 car_speed *= 1.5f;
-                inGear2 = true;
-                inGear1 = false;
-                inGear3 = false;
+                DOTween.To(() => theAM.carEngine.pitch, x => theAM.carEngine.pitch = x, gear3Pitch, 1f);
+
                 break;
             case 3:
                 gear_level = 1;
                 ResetSpeedCheck();
-                inGear3 = true;
-                inGear1 = false;
-                inGear2 = false;
+                DOTween.To(() => theAM.carEngine.pitch, x => theAM.carEngine.pitch = x, gear1Pitch, 1f);
+
                 break;
         }
         Debug.Log(gear_level);     
@@ -183,22 +176,4 @@ public class CarMovement : MonoBehaviour
     }
 
 
-    public void GearShiftAudio()
-    {
-        if (inGear1)
-        { 
-            theAM.carEngine.pitch = gear1Pitch;
-
-        }
-
-        if (inGear2)
-        {
-            theAM.carEngine.pitch = gear2Pitch;
-        }
-
-        if (inGear3)
-        {
-            theAM.carEngine.pitch = gear3Pitch;
-        }
-    }
 }
