@@ -53,6 +53,6 @@ public class CarHealth : MonoBehaviour
 
     AudioClip RandomClip()
     {
-        return impactSoundArray[Random.Range(0, impactSoundArray.Length)];
+        return impactSoundArray[Random.Range(0, impactSoundArray.Length-1)];
     }
 }
