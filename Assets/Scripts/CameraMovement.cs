@@ -18,108 +18,57 @@ public class CameraMovement : MonoBehaviour
     public GameObject midWaypoint;
     public GameObject rightWaypoint;
 
-
-    int pos = 0;
-
     void Start()
     {
         leftScreen.SetActive(false);
         midScreen.SetActive(true);
         rightScreen.SetActive(false);
-
     }
 
     void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        left.SetActive(false);
+        mid.SetActive(true);
+        right.SetActive(false);
+
+        leftScreen.SetActive(false);
+        midScreen.SetActive(true);
+        rightScreen.SetActive(false);
+
+        main.transform.position = midWaypoint.transform.position;
+
+        if (Input.GetKey(KeyCode.Q))
         {
-            if(pos == 0)
-            {
-                left.SetActive(true);
-                mid.SetActive(false);
-                right.SetActive(false);
+            //Debug.Log("we are holding q!");
 
-                leftScreen.SetActive(true);
-                midScreen.SetActive(false);
-                rightScreen.SetActive(false);
+            left.SetActive(true);
+            mid.SetActive(false);
+            right.SetActive(false);
 
-                main.transform.position = leftWaypoint.transform.position;
+            leftScreen.SetActive(true);
+            midScreen.SetActive(false);
+            rightScreen.SetActive(false);
 
-                Debug.Log(pos);
-                pos--;
-                Debug.Log(pos);
-            }
+            main.transform.position = leftWaypoint.transform.position;
 
-            if (pos == -1)
-            {
-                Debug.Log(pos);
-                pos = -1;
-                Debug.Log(pos);
-            }
-
-            if (pos == 1)
-            {
-                left.SetActive(false);
-                mid.SetActive(true);
-                right.SetActive(false);
-
-                leftScreen.SetActive(false);
-                midScreen.SetActive(true);
-                rightScreen.SetActive(false);
-
-                main.transform.position = midWaypoint.transform.position;
-
-                Debug.Log(pos);
-                pos--;
-                Debug.Log(pos);
-            }
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.E))
         {
-            if (pos == 0)
-            {
-                left.SetActive(false);
-                mid.SetActive(false);
-                right.SetActive(true);
+            //Debug.Log("we are holding e!");
 
-                leftScreen.SetActive(false);
-                midScreen.SetActive(false);
-                rightScreen.SetActive(true);
+            left.SetActive(false);
+            mid.SetActive(false);
+            right.SetActive(true);
 
-                main.transform.position = rightWaypoint.transform.position;
+            leftScreen.SetActive(false);
+            midScreen.SetActive(false);
+            rightScreen.SetActive(true);
 
+            main.transform.position = rightWaypoint.transform.position;
 
-                Debug.Log(pos);
-                pos++;
-                Debug.Log(pos);
-            }
-
-            if (pos == 1)
-            {
-                Debug.Log(pos);
-                pos = 1;
-                Debug.Log(pos);
-            }
-
-            if (pos == -1)
-            {
-                left.SetActive(false);
-                mid.SetActive(true);
-                right.SetActive(false);
-
-                leftScreen.SetActive(false);
-                midScreen.SetActive(true);
-                rightScreen.SetActive(false);
-
-                main.transform.position = midWaypoint.transform.position;
-
-                Debug.Log(pos);
-                pos++;
-                Debug.Log(pos);
-            }
         }
+
     }
-
 }
+
