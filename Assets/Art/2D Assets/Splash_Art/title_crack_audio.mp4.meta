@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+<<<<<<< Updated upstream
+guid: 50cfa32889cc2054b958aeaaaa1c30d6
+=======
+guid: 713194e4803d0be4aad2af5aa0da892a
+>>>>>>> Stashed changes
+VideoClipImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  frameRange: 0
+  startFrame: -1
+  endFrame: -1
+  colorSpace: 0
+  deinterlace: 0
+  encodeAlpha: 0
+  flipVertical: 0
+  flipHorizontal: 0
+  importAudio: 1
+  targetSettings: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
