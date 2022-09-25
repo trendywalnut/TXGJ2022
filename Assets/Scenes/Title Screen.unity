@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -772,6 +772,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1153321722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353122275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee96648a19002794a9db94165e10e431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1230531701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -867,6 +879,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1153321722}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: ResetPlayScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 722549525681597938, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 722549525681597939, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -885,7 +925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722549525681597939, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 96.17706
       objectReference: {fileID: 0}
     - target: {fileID: 722549525681597939, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
       propertyPath: m_LocalScale.x
@@ -1333,7 +1373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4467101606093543318, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4769826455151772838, guid: 3aa1482e3f6463447adeb3e183341171, type: 3}
       propertyPath: m_IsActive
