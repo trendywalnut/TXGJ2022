@@ -20,7 +20,11 @@ public class CarMovement : MonoBehaviour
 
     private Vector3 slowCarVelocity;
 
-    bool gearShifted = false;
+    bool inGear1 = false;
+    bool inGear2 = false;
+    bool inGear3 = false;
+
+
 
     //public GameObject moveToPoint;
 
@@ -35,6 +39,7 @@ public class CarMovement : MonoBehaviour
 
         car_speed = base_car_speed;
         gear_level = 1;
+        inGear1 = true;
     }
 
     void Update()
@@ -58,7 +63,15 @@ public class CarMovement : MonoBehaviour
             ShiftGear();
         }
 
-        //Debug.Log(horizontalinput);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //play honk noise
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            HandBrake();
+        }
         
     }
 
@@ -79,8 +92,6 @@ public class CarMovement : MonoBehaviour
         {
             DOTween.Kill("rotate");
         }
-
-        
     }
 
     private void ShiftGear()
@@ -90,15 +101,23 @@ public class CarMovement : MonoBehaviour
             case 1:
                 gear_level++;
                 car_speed *= gear_level;
+                inGear1 = true;
+                inGear2 = false;
+                inGear3 = false;
                 break;
             case 2:
                 gear_level++;
                 car_speed *= 1.5f;
+                inGear2 = true;
+                inGear1 = false;
+                inGear3 = false;
                 break;
             case 3:
                 gear_level = 1;
                 ResetSpeedCheck();
-                //car_speed = base_car_speed;
+                inGear3 = true;
+                inGear1 = false;
+                inGear2 = false;
                 break;
         }
         Debug.Log(gear_level);     
@@ -110,5 +129,10 @@ public class CarMovement : MonoBehaviour
         {
             DOTween.To(() => car_speed, x => car_speed = x, base_car_speed, 0.2f);
         }
+    }
+
+    private void HandBrake()
+    {
+        DOTween.To(() => car_speed, x => car_speed = x, 0f, 0.5f);
     }
 }
