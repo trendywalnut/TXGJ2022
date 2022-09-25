@@ -20,11 +20,14 @@ public class CarMovement : MonoBehaviour
 
     private Vector3 slowCarVelocity;
 
-    bool inGear1 = false;
-    bool inGear2 = false;
-    bool inGear3 = false;
+    public bool inGear1 = false;
+    public bool inGear2 = false;
+    public bool inGear3 = false;
 
-
+    //audio shit
+    public AudioClip breakClip;
+    public AudioClip hornClip;
+    private AudioManager theAM;
 
     //public GameObject moveToPoint;
 
@@ -40,6 +43,9 @@ public class CarMovement : MonoBehaviour
         car_speed = base_car_speed;
         gear_level = 1;
         inGear1 = true;
+
+        theAM = FindObjectOfType<AudioManager>();
+
     }
 
     void Update()
@@ -60,17 +66,42 @@ public class CarMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            ShiftGear();
+            ShiftGear();            
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //play honk noise
+            theAM.CarSFXPlayer(hornClip);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             HandBrake();
+
+            //audio
+            StartCoroutine (carStopSFX());
+
+            IEnumerator carStopSFX()
+            {
+                theAM.CarSFXPlayer(breakClip);
+                yield return new WaitForSeconds(2.2f);
+                theAM.carEngine.Stop();
+            }
+
+
+
+
+            /*IEnumerator showTextFuntion()
+            {
+                TextUI.text = "Welcome to Number Wizard!";
+                yield return new WaitForSeconds(3f);
+                TextUI.text = ("The highest number you can pick is " + max);
+                yield return new WaitForSeconds(3f);
+                TextUI.text = ("The lowest number you can pick is " + min);
+            }*/
+
         }
         
     }
