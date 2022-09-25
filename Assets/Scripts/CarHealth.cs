@@ -9,10 +9,17 @@ public class CarHealth : MonoBehaviour
     public int max_health = 3;
     public int current_health;
 
+    //audio
+    public AudioClip[] impactSoundArray;
+    private AudioManager theAM;
+
     public TextMeshProUGUI text;
     void Start()
     {
         current_health = max_health;
+
+        theAM = FindObjectOfType<AudioManager>();
+
     }
 
     void Update()
@@ -23,6 +30,9 @@ public class CarHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         current_health -= damage;
+
+        //audio
+        theAM.ImpactSFXPlayer(RandomClip());
 
         if(current_health <= 0)
         {
@@ -38,5 +48,11 @@ public class CarHealth : MonoBehaviour
     private void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+    AudioClip RandomClip()
+    {
+        return impactSoundArray[Random.Range(0, impactSoundArray.Length)];
     }
 }

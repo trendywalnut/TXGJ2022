@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource radioStation;
     public AudioSource carEngine;
     public AudioSource carSFX;
+    public AudioSource impactSFX;
 
     public void ChangeRadio(AudioClip music)
     {
@@ -35,5 +36,11 @@ public class AudioManager : MonoBehaviour
     {
         carSFX.clip = SFX;
         carSFX.Play();
+    }
+
+    public void ImpactSFXPlayer(AudioClip SFX)
+    {
+        impactSFX.clip = SFX;
+        impactSFX.Play();
     }
 }
