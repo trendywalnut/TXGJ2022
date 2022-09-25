@@ -12,12 +12,17 @@ public class CarMovement : MonoBehaviour
     private float car_rotation;
 
     public float rotation_multiplier;
+    public float base_car_speed;
     public float car_speed;
 
     private Transform car_transform;
     private Rigidbody car_rb;
 
-    public GameObject moveToPoint;
+    private Vector3 slowCarVelocity;
+
+    bool gearShifted = false;
+
+    //public GameObject moveToPoint;
 
     //Sequence mySequence = DOTween.Sequence();
 
@@ -27,11 +32,15 @@ public class CarMovement : MonoBehaviour
         DOTween.Init();
         car_transform = GetComponent<Transform>();
         car_rb = GetComponent<Rigidbody>();
+
+        car_speed = base_car_speed;
+        gear_level = 1;
     }
 
     void Update()
     {
         HandleInput();
+        
     }
 
     private void FixedUpdate()
@@ -43,6 +52,11 @@ public class CarMovement : MonoBehaviour
     {
         horizontalinput = Input.GetAxisRaw("Horizontal");
         car_rotation = horizontalinput * rotation_multiplier;
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ShiftGear();
+        }
 
         //Debug.Log(horizontalinput);
         
@@ -59,11 +73,42 @@ public class CarMovement : MonoBehaviour
         {
             //Vector3 carRotation = car_transform.eulerAngles;
             Vector3 resetRotation = new Vector3(0, 0, 0);
-            car_transform.DORotate(resetRotation, 0.5f).SetAutoKill(true);
+            car_transform.DORotate(resetRotation, 0.5f).SetId("rotate");
         }
         else
         {
-            DOTween.KillAll();
+            DOTween.Kill("rotate");
+        }
+
+        
+    }
+
+    private void ShiftGear()
+    {
+        switch (gear_level)
+        {
+            case 1:
+                gear_level++;
+                car_speed *= gear_level;
+                break;
+            case 2:
+                gear_level++;
+                car_speed *= 1.5f;
+                break;
+            case 3:
+                gear_level = 1;
+                ResetSpeedCheck();
+                //car_speed = base_car_speed;
+                break;
+        }
+        Debug.Log(gear_level);     
+    }
+
+    private void ResetSpeedCheck()
+    {
+        if(gear_level == 1 && car_speed != base_car_speed)
+        {
+            DOTween.To(() => car_speed, x => car_speed = x, base_car_speed, 0.2f);
         }
     }
 }
