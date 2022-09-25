@@ -81,13 +81,11 @@ public class CarMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //play honk noise
-            HandBrake();
             theAM.CarSFXPlayer(hornClip);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            HandBrake();
 
             //audio
             StartCoroutine (carStopSFX());
@@ -95,21 +93,12 @@ public class CarMovement : MonoBehaviour
             IEnumerator carStopSFX()
             {
                 theAM.CarSFXPlayer(breakClip);
-                yield return new WaitForSeconds(2.2f);
+                yield return new WaitForSeconds(1f);
+                HandBrake();
+                yield return new WaitForSeconds(1.2f);
                 theAM.carEngine.Stop();
             }
 
-
-
-
-            /*IEnumerator showTextFuntion()
-            {
-                TextUI.text = "Welcome to Number Wizard!";
-                yield return new WaitForSeconds(3f);
-                TextUI.text = ("The highest number you can pick is " + max);
-                yield return new WaitForSeconds(3f);
-                TextUI.text = ("The lowest number you can pick is " + min);
-            }*/
 
         }
         
@@ -153,7 +142,7 @@ public class CarMovement : MonoBehaviour
             case 3:
                 gear_level = 1;
                 ResetSpeedCheck();
-                DOTween.To(() => theAM.carEngine.pitch, x => theAM.carEngine.pitch = x, gear1Pitch, 1f);
+                DOTween.To(() => theAM.carEngine.pitch, x => theAM.carEngine.pitch = x, gear1Pitch, 1.7f);
 
                 break;
         }
