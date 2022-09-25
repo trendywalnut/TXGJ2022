@@ -357,8 +357,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7980897334447694137, guid: ed68945b9af74e447b97c407bce95de7, type: 3}
+      propertyPath: WinScene
+      value: Win Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980897334447694137, guid: ed68945b9af74e447b97c407bce95de7, type: 3}
+      propertyPath: LoseScene
+      value: Lose Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980897334447694137, guid: ed68945b9af74e447b97c407bce95de7, type: 3}
       propertyPath: PlayScene
-      value: Connor
+      value: Play Scene
       objectReference: {fileID: 0}
     - target: {fileID: 7980897334447694137, guid: ed68945b9af74e447b97c407bce95de7, type: 3}
       propertyPath: HowToPlayScene
