@@ -47,7 +47,7 @@ public class CarHealth : MonoBehaviour
 
     private void ResetLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Lose Scene");
     }
 
 
