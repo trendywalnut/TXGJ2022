@@ -2119,6 +2119,30 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 336869008}
+    - target: {fileID: 4364216972400976275, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
+      propertyPath: impactSoundArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364216972400976275, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
+      propertyPath: impactSoundArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30db87ae7eb1b4a1c973dd959fbd5deb, type: 3}
+    - target: {fileID: 4364216972400976275, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
+      propertyPath: impactSoundArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4615fc767de5c4ce3bb0be12b979b975, type: 3}
+    - target: {fileID: 4364216972400976275, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
+      propertyPath: impactSoundArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b8d2339c20df149f9a2e9b1ab70d5c52, type: 3}
+    - target: {fileID: 4364216972400976275, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
+      propertyPath: impactSoundArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b277146a076b14144856f1f18b6e8392, type: 3}
+    - target: {fileID: 4364216972400976275, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
+      propertyPath: impactSoundArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 018311072393e4cd99dd9368fb21097d, type: 3}
     - target: {fileID: 7053156059557373918, guid: a44def72b8a2db043b3efb12e19cc3bc, type: 3}
       propertyPath: m_TagString
       value: Player
