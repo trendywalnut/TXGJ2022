@@ -23,9 +23,20 @@ public class LevelEnd : MonoBehaviour
 
     private void Update()
     {
-        if(carMovement.handBrakePulled && goalMet)
+        StartCoroutine(endWaitDelay());
+
+        IEnumerator endWaitDelay()
         {
-            SceneManager.LoadScene("Win Scene");
+            if (carMovement.handBrakePulled && goalMet)
+            {
+                yield return new WaitForSeconds(3.5f);
+                SceneManager.LoadScene("Win Scene");
+            }
         }
+
+
     }
+
+
 }
+
