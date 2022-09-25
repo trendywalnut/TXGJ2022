@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public CarHealth carHealth;
+    private CarHealth carHealth;
+
+    private void Start()
+    {
+        carHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CarHealth>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        //Debug.Log(other + " hit");
         if(other.tag == "Player")
         {
-            Debug.Log("hit player");
+            carHealth.TakeDamage(1);
         }
     }
 }
