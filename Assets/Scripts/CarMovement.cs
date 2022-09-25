@@ -20,9 +20,7 @@ public class CarMovement : MonoBehaviour
 
     private Vector3 slowCarVelocity;
 
-    public bool inGear1 = false;
-    public bool inGear2 = false;
-    public bool inGear3 = false;
+    public bool handBrakePulled = false;
 
     //audio shit
     public AudioClip breakClip;
@@ -47,7 +45,6 @@ public class CarMovement : MonoBehaviour
 
         car_speed = base_car_speed;
         gear_level = 1;
-        inGear1 = true;
 
 
         //audio
@@ -84,6 +81,7 @@ public class CarMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //play honk noise
+            HandBrake();
             theAM.CarSFXPlayer(hornClip);
         }
 
@@ -172,6 +170,7 @@ public class CarMovement : MonoBehaviour
 
     private void HandBrake()
     {
+        handBrakePulled = true;
         DOTween.To(() => car_speed, x => car_speed = x, 0f, 0.5f);
     }
 
