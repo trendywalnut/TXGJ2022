@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 50cfa32889cc2054b958aeaaaa1c30d6
+=======
+guid: 713194e4803d0be4aad2af5aa0da892a
+>>>>>>> Stashed changes
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 2
