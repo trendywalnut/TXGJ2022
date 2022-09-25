@@ -29,6 +29,14 @@ public class CarMovement : MonoBehaviour
     public AudioClip hornClip;
     private AudioManager theAM;
 
+    public int gear1Pitch = 1;
+    public int gear2Pitch = 2;
+    public int gear3Pitch = 3;
+
+    public int gearShiftTime = 2;
+
+
+
     //public GameObject moveToPoint;
 
     //Sequence mySequence = DOTween.Sequence();
@@ -44,13 +52,20 @@ public class CarMovement : MonoBehaviour
         gear_level = 1;
         inGear1 = true;
 
+
+        //audio
         theAM = FindObjectOfType<AudioManager>();
+
+        theAM.carEngine.GetComponent<AudioSource>();
+
+
 
     }
 
     void Update()
     {
         HandleInput();
+        GearShiftAudio();
         
     }
 
@@ -165,5 +180,25 @@ public class CarMovement : MonoBehaviour
     private void HandBrake()
     {
         DOTween.To(() => car_speed, x => car_speed = x, 0f, 0.5f);
+    }
+
+
+    public void GearShiftAudio()
+    {
+        if (inGear1)
+        { 
+            theAM.carEngine.pitch = gear1Pitch;
+
+        }
+
+        if (inGear2)
+        {
+            theAM.carEngine.pitch = gear2Pitch;
+        }
+
+        if (inGear3)
+        {
+            theAM.carEngine.pitch = gear3Pitch;
+        }
     }
 }
