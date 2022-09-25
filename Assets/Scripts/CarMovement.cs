@@ -55,7 +55,7 @@ public class CarMovement : MonoBehaviour
 
     private void HandleInput()
     {
-        horizontalinput = Input.GetAxisRaw("Horizontal");
+        horizontalinput = -Input.GetAxisRaw("Horizontal");
         car_rotation = horizontalinput * rotation_multiplier;
 
         if (Input.GetKeyDown(KeyCode.W))
