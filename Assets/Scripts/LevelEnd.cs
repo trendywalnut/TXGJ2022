@@ -7,17 +7,20 @@ using UnityEngine.SceneManagement;
 public class LevelEnd : MonoBehaviour
 {
     public TextMeshProUGUI stopTheCarText;
+    public GameObject stopTheCarTextBG;
     public CarMovement carMovement;
 
     private bool goalMet = false;
     private void Start()
     {
         stopTheCarText.gameObject.SetActive(false);
+        stopTheCarTextBG.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         stopTheCarText.gameObject.SetActive(true);
+        stopTheCarTextBG.gameObject.SetActive(true);
         goalMet = true;
     }
 

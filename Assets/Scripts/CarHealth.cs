@@ -13,7 +13,7 @@ public class CarHealth : MonoBehaviour
     public AudioClip[] impactSoundArray;
     private AudioManager theAM;
 
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
     void Start()
     {
         current_health = max_health;
@@ -42,7 +42,7 @@ public class CarHealth : MonoBehaviour
 
     private void UpdateUI()
     {
-        text.SetText(current_health.ToString());
+        //text.SetText(current_health.ToString());
     }
 
     private void ResetLevel()
